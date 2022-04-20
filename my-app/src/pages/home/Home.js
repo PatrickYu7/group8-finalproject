@@ -10,7 +10,9 @@ function Home() {
           <h1>Rate Berkeley Classes</h1>
         </div>
       </div>
-      <div className={classes.bottom}>GOODBYE</div>
+      <div className={classes.bottom}>
+        Some Description of website and image
+      </div>
     </div>
   );
 }

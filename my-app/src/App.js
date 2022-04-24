@@ -1,9 +1,10 @@
 import Navbar from "./components/Navigation/navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Account from "./pages/account/Account";
-import Courses from "./pages/courses/Courses";
-import Home from "./pages/home/Home";
-import About from "./pages/about/About";
+import Account from "./pages/account/account";
+import Courses from "./pages/courses/courses";
+import Home from "./pages/home/home";
+import About from "./pages/about/about";
+import SetReview from "./pages/setreview/set-review";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/setreview" element={<SetReview />} />
         </Routes>
       </div>
     </BrowserRouter>

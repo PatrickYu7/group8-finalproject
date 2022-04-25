@@ -1,0 +1,16 @@
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 67%;
+  position: absolute;
+  left: 800px;
+  padding-top: 10px;
+  gap: 10px;
+  align-content: flex-start;
+}
+
+.overall {
+  display: flex;
+  height: 100%;
+}

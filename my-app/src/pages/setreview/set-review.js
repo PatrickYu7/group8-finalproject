@@ -49,7 +49,7 @@ function SetReview(props) {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/addReview",
+        "http://localhost:8080/course/addReview",
         reviewData
       );
       console.log(response.data);

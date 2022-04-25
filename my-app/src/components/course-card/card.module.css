@@ -1,0 +1,34 @@
+.moveDown {
+  position: relative;
+  top: 15px;
+}
+
+.downGray {
+  position: relative;
+  color: gray;
+  top: 10px;
+}
+
+.cardStyling {
+  height: 150px;
+  width: 400px;
+  color: black;
+  line-height: 8px;
+  text-indent: 40px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.cardStyling:hover {
+  background-color: #f5f5f5;
+}
+
+.innerDiv {
+  display: flex;
+  justify-content: space-around;
+  line-height: 15px;
+  width: 100%;
+  align-items: center;
+  text-indent: 0px;
+  position: relative;
+}

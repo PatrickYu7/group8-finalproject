@@ -61,6 +61,27 @@ function Courses() {
           sigRating={63}
           diffRating={66}
         />
+        <CourseCard
+          courseId="adfadf"
+          courseName="aahahhhhh"
+          workRating={90}
+          sigRating={83}
+          diffRating={93}
+        />
+        <CourseCard
+          courseId="adfff"
+          courseName="adsfadf"
+          workRating={20}
+          sigRating={63}
+          diffRating={66}
+        />
+        <CourseCard
+          courseId="adfff"
+          courseName="adsfadf"
+          workRating={20}
+          sigRating={63}
+          diffRating={66}
+        />
       </div>
     </div>
   );

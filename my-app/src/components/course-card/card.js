@@ -6,38 +6,38 @@ import classes from "./card.module.css";
 function CourseCard(props) {
   const id = "/courses/" + props.courseId;
   return (
-    <Link to={id}>
+    <Link to={id} className={classes.size}>
       <div className={classes.cardStyling}>
-        <h3 className={classes.moveDown}>{props.courseId}</h3>
-        <h5 className={classes.downGray}>{props.courseName}</h5>
+        <h1 className={classes.moveDown}>{props.courseId}</h1>
+        <h4 className={classes.downGray}>{props.courseName}</h4>
         <div className={classes.innerDiv}>
-          <h6>
+          <h3>
             Workload:
             <ReactStars
               count={5}
-              size={15}
+              size={20}
               edit={false}
               value={props.workRating / 20}
             />
-          </h6>
-          <h6>
+          </h3>
+          <h3>
             Difficulty:
             <ReactStars
               count={5}
-              size={15}
+              size={20}
               edit={false}
               value={props.workRating / 20}
             />
-          </h6>
-          <h6>
+          </h3>
+          <h3>
             Importance:{" "}
             <ReactStars
               count={5}
-              size={15}
+              size={20}
               edit={false}
               value={props.workRating / 20}
             />
-          </h6>
+          </h3>
         </div>
       </div>
     </Link>

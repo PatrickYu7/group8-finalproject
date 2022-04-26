@@ -1,16 +1,18 @@
 .courses {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: 100%;
-  width: 67%;
+  width: 60%;
   position: absolute;
-  left: 800px;
+  left: 35%;
   padding-top: 10px;
   gap: 10px;
   align-content: flex-start;
+  overflow: auto;
 }
 
 .overall {
   display: flex;
   height: 100%;
+  width: 100%;
 }

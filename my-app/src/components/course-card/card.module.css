@@ -1,22 +1,23 @@
 .moveDown {
   position: relative;
-  top: 15px;
+  left: 25%;
+  top: 10px;
 }
 
 .downGray {
   position: relative;
+  left: 25%;
   color: gray;
-  top: 10px;
+  top: 5px;
 }
 
 .cardStyling {
-  height: 150px;
-  width: 400px;
+  height: 200px;
   color: black;
-  line-height: 8px;
-  text-indent: 40px;
+  line-height: 15px;
   border: 1px solid black;
   border-radius: 8px;
+  width: 95%;
 }
 
 .cardStyling:hover {
@@ -25,10 +26,15 @@
 
 .innerDiv {
   display: flex;
-  justify-content: space-around;
-  line-height: 15px;
-  width: 100%;
+  justify-content: space-between;
+  line-height: 30px;
+  width: 70%;
+  left: 25%;
   align-items: center;
   text-indent: 0px;
   position: relative;
+}
+
+.size {
+  width: 100%;
 }

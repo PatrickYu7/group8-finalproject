@@ -4,8 +4,8 @@ import Account from "./pages/account/Account";
 import Courses from "./pages/courses/Courses";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
-import SetReview from "./pages/setreview/set-review";
 import CourseReviews from "./components/coursereviews/course-reviews";
+import AddReview from "./components/addreview/add-review";
 
 function App() {
   return (
@@ -18,8 +18,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/setreview" element={<SetReview />} />
+
           <Route path="/courses/:id" element={<CourseReviews />} />
+          <Route path="/courses/:id/addreview" element={<AddReview />} />
         </Routes>
       </div>
     </BrowserRouter>

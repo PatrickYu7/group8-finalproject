@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-const bodyParser = require("body-parser");
+import bodyParser from "body-parser";
 
 import CourseRouter from "./routes/course.route.js";
 import ReviewRouter from "./routes/review.route.js";

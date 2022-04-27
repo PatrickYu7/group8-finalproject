@@ -21,8 +21,7 @@ function Courses() {
     const diff = courses[i].difficulty;
     const work = courses[i].workload;
     const name = courses[i].courseName;
-    const path = "/courses/" + id;
-    console.log(path);
+
     cards.push(
       <CourseCard
         courseId={id}

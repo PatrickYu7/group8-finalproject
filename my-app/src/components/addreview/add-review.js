@@ -1,15 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 //https://reactjsexample.com/a-simple-star-rating-component-with-react/
 import { Rating } from "react-simple-star-rating";
 
-function SetReview(props) {
+function AddReview(props) {
   const [diffRating, setDiffRating] = useState(0);
   const [sigRating, setSigRating] = useState(0);
   const [workRating, setWorkRating] = useState(0);
   const [enteredReview, setReview] = useState("");
+  const { id } = useParams();
 
   const handleDiffRating = (rate) => {
     setDiffRating(rate);
@@ -28,36 +30,23 @@ function SetReview(props) {
       difficulty: diffRating,
       workload: workRating,
       significance: sigRating,
-      courseId: "",
+      courseId: id,
     };
 
     const reviewData = {
       comment: enteredReview,
-      courseId: "",
+      courseId: id,
     };
 
-    try {
-      // make axios post request
-      const response = await axios.post("http://localhost:8080/rate", ratings);
-      console.log(response.data);
-      setDiffRating(0);
-      setSigRating(0);
-      setWorkRating(0);
-    } catch (error) {
-      console.log(error);
-    }
+    axios.post("http://localhost:8080/course/rate", ratings).then((res) => {
+      console.log(res.data);
+    });
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/course/addReview",
-        reviewData
-      );
-      console.log(response.data);
-
-      setReview("");
-    } catch (error) {
-      console.log(error);
-    }
+    axios
+      .post("http://localhost:8080/course/addReview", reviewData)
+      .then((response) => {
+        console.log(response.data);
+      });
   };
 
   return (
@@ -119,4 +108,4 @@ function SetReview(props) {
   );
 }
 
-export default SetReview;
+export default AddReview;

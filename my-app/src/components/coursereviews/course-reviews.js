@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import ReviewCard from "../review-card/review-card";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
-function CourseReviews(props) {
+function CourseReviews() {
   const [currentReviews, setReviews] = useState(null);
   const [currentCourses, setCourses] = useState(null);
   const { id } = useParams();
@@ -42,18 +44,39 @@ function CourseReviews(props) {
       work = currentCourses[i].workload;
       sig = currentCourses[i].significance;
       numRating = currentCourses[i].numRating;
+
       break;
     }
   }
 
-  const comment = currentReviews[0].comment;
+  const reviewCards = [];
+
+  for (var j = 0; j < currentReviews.length; j++) {
+    const getComment = currentReviews[j].comment;
+    const getLikes = currentReviews[j].likes;
+    const getDislikes = currentReviews[j].dislikes;
+    const id = currentReviews[j]._id;
+    console.log(currentReviews[j]);
+    reviewCards.push(
+      <ReviewCard
+        comments={getComment}
+        likes={getLikes}
+        dislikes={getDislikes}
+        reviewID={id}
+      />
+    );
+  }
+
+  const path = "/courses/" + id + "/addreview";
 
   return (
     <div>
-      <div>
-        <h1>{comment}</h1>
-        <h2>{diff}</h2>
-      </div>
+      <div>{reviewCards}</div>
+      <Link to={path}>
+        <Button>
+          <h1>CLICK TO MAKE REVIEW!!!!</h1>
+        </Button>
+      </Link>
     </div>
   );
 }

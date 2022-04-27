@@ -1,20 +1,20 @@
 .moveDown {
   position: relative;
   left: 25%;
-  top: 10px;
+  top: 8%;
 }
 
 .downGray {
   position: relative;
   left: 25%;
   color: gray;
-  top: 5px;
+  top: 8%;
 }
 
 .cardStyling {
-  height: 200px;
+  height: 250px;
   color: black;
-  line-height: 15px;
+  line-height: 150%;
   border: 1px solid black;
   border-radius: 8px;
   width: 95%;
@@ -27,12 +27,13 @@
 .innerDiv {
   display: flex;
   justify-content: space-between;
-  line-height: 30px;
+  line-height: 25px;
   width: 70%;
   left: 25%;
   align-items: center;
   text-indent: 0px;
   position: relative;
+  top: 10%;
 }
 
 .size {

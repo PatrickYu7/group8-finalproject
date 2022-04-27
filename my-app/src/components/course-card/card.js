@@ -26,7 +26,7 @@ function CourseCard(props) {
               count={5}
               size={20}
               edit={false}
-              value={props.workRating / 20}
+              value={props.diffRating / 20}
             />
           </h3>
           <h3>
@@ -35,7 +35,7 @@ function CourseCard(props) {
               count={5}
               size={20}
               edit={false}
-              value={props.workRating / 20}
+              value={props.sigRating / 20}
             />
           </h3>
         </div>

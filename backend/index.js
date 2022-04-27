@@ -12,7 +12,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const database = process.env.DATABASE_URI;
+const database =
+  "mongodb://127.0.0.1:27017/final?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.3.1";
 mongoose
   .connect(database)
   .then(() => console.log("MongoDB successfully connected"))

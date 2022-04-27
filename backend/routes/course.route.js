@@ -18,7 +18,7 @@ export default {
 
     router.post("/addReview", addReview);
 
-    router.get("/getReviews", getReviews);
+    router.post("/getReviews", getReviews);
 
     router.post("/addCourse", addCourse);
 

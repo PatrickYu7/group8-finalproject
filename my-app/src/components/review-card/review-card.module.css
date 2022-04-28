@@ -14,10 +14,8 @@
 .cardStyling {
   color: black;
   line-height: 150%;
-  border: 1px solid black;
-  border-radius: 8px;
+
   display: flex;
-  width: 20%;
   min-height: 200px;
   overflow: hidden;
 }
@@ -48,6 +46,6 @@
   position: relative;
   height: 100%;
   width: 70%;
-  font-size: large;
-  font-weight: 500;
+  font-size: medium;
+  font-weight: 400;
 }

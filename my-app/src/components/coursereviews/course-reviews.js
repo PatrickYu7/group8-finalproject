@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
+import classes from "./course-reviews.module.css";
 
 function CourseReviews() {
   const [currentReviews, setReviews] = useState(null);
@@ -73,7 +74,10 @@ function CourseReviews() {
 
   return (
     <div>
-      <div>{reviewCards}</div>
+      <div className={classes.wrapper}>
+        <div className={classes.text}>Rate Berkeley Classes</div>
+      </div>
+      <div className={classes.reviews}>{reviewCards}</div>
       <Link to={path}>
         <Button>
           <h1>CLICK TO MAKE REVIEW!!!!</h1>

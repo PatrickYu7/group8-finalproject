@@ -1,20 +1,31 @@
 import React, { useState } from "react";
 import classes from "./login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async () => {
+  let navigate = useNavigate();
+  const routeChange = (path) => {
+    navigate(path);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const info = {
-      email: email,
+      username: username,
       password: password,
     };
+    console.log(info);
 
-    axios.post("http://localhost:8080/login", info).then((res) => {
-      console.log(res.data);
+    axios.post("http://localhost:8080/user.route/login", info).then((res) => {
+      const response = res.data;
+      if (response.token) {
+        localStorage.setItem("username", username);
+        routeChange("/home");
+      }
     });
   };
 
@@ -30,13 +41,13 @@ function Login() {
             <h3>Sign In</h3>
 
             <div className="mb-3">
-              <label>Email address</label>
+              <label>Username</label>
               <input
-                type="email"
+                type="username"
                 className="form-control"
-                placeholder="Enter email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                placeholder="Enter username"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
               />
             </div>
 

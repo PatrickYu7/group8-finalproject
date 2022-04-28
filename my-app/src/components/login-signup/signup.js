@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function SignUp() {
@@ -8,16 +8,35 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
 
-  const handleSubmit = async () => {
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = "/home";
+    navigate(path);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const info = {
       username: username,
       email: email,
       password: password,
     };
 
-    axios.post("http://localhost:8080/signup", info).then((res) => {
-      console.log(res.data);
-    });
+    console.log(info);
+
+    axios
+      .post("http://localhost:8080/user.route/signup", info)
+      .then((res) => {
+        const data = res.data;
+        console.log(data);
+        if (data.token) {
+          localStorage.setItem("username", username);
+          routeChange();
+        } else {
+          routeChange();
+        }
+      })
+      .catch((error) => console.error(error));
   };
 
   return (

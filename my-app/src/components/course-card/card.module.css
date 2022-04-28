@@ -1,6 +1,6 @@
 .moveDown {
   position: relative;
-  left: 25%;
+  left: 10%;
   top: 8%;
   font-size: xx-large;
   font-weight: bold;
@@ -8,7 +8,7 @@
 
 .downGray {
   position: relative;
-  left: 25%;
+  left: 10%;
   color: gray;
   top: 8%;
 }
@@ -31,7 +31,7 @@
   justify-content: space-between;
   line-height: 25px;
   width: 70%;
-  left: 25%;
+  left: 10%;
   align-items: center;
   text-indent: 0px;
   position: relative;

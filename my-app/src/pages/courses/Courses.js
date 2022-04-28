@@ -19,7 +19,20 @@ function Courses() {
 
   return (
     <div className={classes.overall}>
-      <div>
+      <div className={classes.courses}>
+        <FilteredCourses input={enteredID} />
+      </div>
+      <div className={classes.search}>
+        <h1>Search Courses</h1>
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          fullWidth
+          label="Search for Courses"
+          onChange={inputHandler}
+        />
+      </div>
+      <div className={classes.courseBtn}>
         <Link to="/addcourse">
           <div className="mb-2">
             <Button variant="primary" size="lg">
@@ -27,18 +40,6 @@ function Courses() {
             </Button>{" "}
           </div>
         </Link>
-      </div>
-      <div className="search">
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          fullWidth
-          label="Search"
-          onChange={inputHandler}
-        />
-      </div>
-      <div className={classes.courses}>
-        <FilteredCourses input={enteredID} />
       </div>
     </div>
   );

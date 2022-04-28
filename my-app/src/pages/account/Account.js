@@ -45,8 +45,9 @@ function Account() {
 
   return (
     <div>
-      <h1>{header}</h1>
+      <h1 className={classes.headerPos}>{header}</h1>
       <h1 className={classes.reviews}>{reviewCards}</h1>
+      <h1 className={classes.myReviews}>My Reviews</h1>
     </div>
   );
 }

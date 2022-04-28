@@ -40,9 +40,10 @@ export const getCourses = async (_req, res) => {
 
 export const addReview = async (req, res) => {
   try {
-    const { comment, courseId } = req.body;
+    const { comment, courseId, username } = req.body;
     const data = {
       comment,
+      username,
     };
     const review = await Reviews.create(data);
     const course = await Courses.findOne({ courseId });

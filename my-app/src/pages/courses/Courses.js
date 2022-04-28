@@ -20,14 +20,18 @@ function Courses() {
     const id = courses[i].courseID;
     const diff = courses[i].difficulty;
     const work = courses[i].workload;
+    const sig = courses[i].significance;
     const name = courses[i].courseName;
+    const numRatings = courses[i].numRating;
 
     cards.push(
       <CourseCard
         courseId={id}
         diffRating={diff}
         workRating={work}
+        sigRating={sig}
         courseName={name}
+        numRating={numRatings}
       />
     );
   }

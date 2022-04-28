@@ -8,7 +8,10 @@ function ReviewCard(props) {
   return (
     <div>
       <div className={classes.cardStyling}>
-        <p>{props.comments}</p>
+        <div className={classes.comments}>
+          <p>{props.comments}</p>
+        </div>
+
         <LikeButton
           likes={props.likes}
           dislikes={props.dislikes}

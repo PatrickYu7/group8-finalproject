@@ -24,7 +24,7 @@ function App() {
 
         <Route element={<WithNav />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
+
           <Route path="/courses" element={<Courses />} />
           <Route path="/account" element={<Account />} />
 

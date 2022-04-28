@@ -16,9 +16,6 @@ function Navbar() {
           <li>
             <Link to="/account">Account</Link>
           </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
         </ul>
       </nav>
     </div>

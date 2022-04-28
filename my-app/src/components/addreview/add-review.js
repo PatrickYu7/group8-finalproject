@@ -60,6 +60,7 @@ function AddReview() {
               ratingValue={sigRating}
               size={20}
               transition
+              label
               fillColor="orange"
               emptyColor="gray"
               className="foo" // Will remove the inline style if applied
@@ -71,6 +72,7 @@ function AddReview() {
               onClick={handleDiffRating}
               ratingValue={diffRating}
               size={20}
+              label
               transition
               fillColor="orange"
               emptyColor="gray"
@@ -83,6 +85,7 @@ function AddReview() {
               onClick={handleWorkRating}
               ratingValue={workRating}
               size={20}
+              label
               transition
               fillColor="orange"
               emptyColor="gray"

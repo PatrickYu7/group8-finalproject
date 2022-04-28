@@ -6,10 +6,13 @@ function Home() {
     <div className={classes.home}>
       <div className={classes.top}>
         <div className={classes.topImage}></div>
-        <div className={classes.text}>
-          <h1>Rate Berkeley Classes</h1>
+        <div className={classes.wrapper}>
+          <div className={classes.text}>
+            Rate Berkeley Classes
+          </div>
         </div>
       </div>
+      <div className={classes.line}></div>
       <div className={classes.bottom}>
         Some Description of website and image
       </div>

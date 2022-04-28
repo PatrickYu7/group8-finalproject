@@ -1,45 +1,45 @@
 import React from "react";
-import axios from "axios";
-import { useEffect, useState, Link } from "react";
-import CourseCard from "../../components/course-card/card";
+
+import { useState } from "react";
+
 import classes from "./courses.module.css";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import FilteredCourses from "./filteredCourses";
 
 function Courses() {
-  const [courses, setCourses] = useState("");
-  useEffect(() => {
-    axios.get(`http://localhost:8080/course`).then((res) => {
-      const fetchedCourses = res.data.courses;
+  const [enteredID, setID] = useState("");
 
-      setCourses(fetchedCourses);
-    });
-  }, []);
-
-  const cards = [];
-
-  for (var i = 0; i < courses.length; i++) {
-    const id = courses[i].courseID;
-    const diff = courses[i].difficulty;
-    const work = courses[i].workload;
-    const sig = courses[i].significance;
-    const name = courses[i].courseName;
-    const numRatings = courses[i].numRating;
-
-    cards.push(
-      <CourseCard
-        courseId={id}
-        diffRating={diff}
-        workRating={work}
-        sigRating={sig}
-        courseName={name}
-        numRating={numRatings}
-      />
-    );
-  }
+  let inputHandler = (text) => {
+    //convert input text to lower case
+    var lowerCase = text.target.value.toLowerCase();
+    setID(lowerCase);
+  };
 
   return (
     <div className={classes.overall}>
-      <div></div>
-      <div className={classes.courses}>{cards}</div>
+      <div>
+        <Link to="/addcourse">
+          <div className="mb-2">
+            <Button variant="primary" size="lg">
+              Add Course
+            </Button>{" "}
+          </div>
+        </Link>
+      </div>
+      <div className="search">
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          fullWidth
+          label="Search"
+          onChange={inputHandler}
+        />
+      </div>
+      <div className={classes.courses}>
+        <FilteredCourses input={enteredID} />
+      </div>
     </div>
   );
 }

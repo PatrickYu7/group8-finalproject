@@ -11,6 +11,7 @@ import WithNav from "./components/WithNav";
 import WithoutNav from "./components/WIthoutNav";
 import { useState } from "react";
 import ProtectedRoutes from "./ProtectedRoutes";
+import AddCourse from "./components/addcourse/addcourse";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route element={<WithNav />}>
           <Route element={<ProtectedRoutes />}>
             <Route path="/home" element={<Home />} />
-
+            <Route path="/addcourse" element={<AddCourse />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/account" element={<Account />} />
 

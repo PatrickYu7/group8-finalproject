@@ -9,8 +9,7 @@ function SignUp() {
   const [username, setUsername] = useState("");
 
   let navigate = useNavigate();
-  const routeChange = () => {
-    let path = "/home";
+  const routeChange = (path) => {
     navigate(path);
   };
 
@@ -31,9 +30,9 @@ function SignUp() {
         console.log(data);
         if (data.token) {
           localStorage.setItem("username", username);
-          routeChange();
+          routeChange("/home");
         } else {
-          routeChange();
+          routeChange("/sign-up");
         }
       })
       .catch((error) => console.error(error));

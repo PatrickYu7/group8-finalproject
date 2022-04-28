@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import classes from "./addreview.module.css";
 
 //https://reactjsexample.com/a-simple-star-rating-component-with-react/
 import { Rating } from "react-simple-star-rating";
@@ -12,6 +13,11 @@ function AddReview() {
   const [workRating, setWorkRating] = useState(0);
   const [enteredReview, setReview] = useState("");
   const { id } = useParams();
+
+  let navigate = useNavigate();
+  const routeChange = (path) => {
+    navigate(path);
+  };
 
   const handleDiffRating = (rate) => {
     setDiffRating(rate);
@@ -25,41 +31,48 @@ function AddReview() {
     setWorkRating(rate);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const ratings = {
       difficulty: diffRating,
       workload: workRating,
       significance: sigRating,
-      courseId: id,
+      courseID: id,
     };
 
     const reviewData = {
       comment: enteredReview,
-      courseId: id,
+      courseID: id,
       username: localStorage.getItem("username"),
     };
 
-    axios.post("http://localhost:8080/course/rate", ratings).then((res) => {
-      console.log(res.data);
-    });
+    console.log(ratings);
+    axios
+      .post("http://localhost:8080/course/rate", ratings)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => console.error(error));
 
     axios
       .post("http://localhost:8080/course/addReview", reviewData)
       .then((response) => {
         console.log(response.data);
       });
+    routeChange("/courses");
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div>
+    <section className={classes.contact}>
+      <h1>Add Review</h1>
+      <form className={classes.form} onSubmit={handleSubmit}>
+        <div className={classes.controls}>
+          <div className={classes.control}>
             <h2>Importance</h2>
             <Rating
               onClick={handleSigRating}
               ratingValue={sigRating}
-              size={20}
+              size={30}
               transition
               label
               fillColor="orange"
@@ -67,48 +80,49 @@ function AddReview() {
               className="foo" // Will remove the inline style if applied
             />
           </div>
-          <div>
-            <h2>Difficulty</h2>
-            <Rating
-              onClick={handleDiffRating}
-              ratingValue={diffRating}
-              size={20}
-              label
-              transition
-              fillColor="orange"
-              emptyColor="gray"
-              className="foo" // Will remove the inline style if applied
-            />
-          </div>
-          <div>
+          <div className={classes.control}>
             <h2>Workload</h2>
             <Rating
               onClick={handleWorkRating}
               ratingValue={workRating}
-              size={20}
-              label
+              size={30}
               transition
+              label
               fillColor="orange"
               emptyColor="gray"
               className="foo" // Will remove the inline style if applied
             />
           </div>
-
-          <label htmlFor="review"></label>
+          <div className={classes.control}>
+            <h2>Difficulty</h2>
+            <Rating
+              onClick={handleDiffRating}
+              ratingValue={diffRating}
+              size={30}
+              transition
+              label
+              fillColor="orange"
+              emptyColor="gray"
+              className="foo" // Will remove the inline style if applied
+            />
+          </div>
+        </div>
+        <div className={classes.control}>
+          <label htmlFor="message">Review</label>
           <textarea
             id="review"
             rows="5"
-            required
             value={enteredReview}
+            required
             onChange={(event) => setReview(event.target.value)}
-            placeholder="Write your review about this class"
           ></textarea>
         </div>
-        <div>
-          <button>Submit Review</button>
+
+        <div className={classes.actions}>
+          <button>Add Review</button>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
 

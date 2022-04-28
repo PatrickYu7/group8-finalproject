@@ -29,33 +29,31 @@
   color: white;
   padding-left: 0px;
   padding-right: 150px;
-  align-self: flex-end;
 }
 
 .wrapper {
-  display: flex;
   height: 200px;
-  background-color: #14213D;
+  background-color: #14213d;
   position: absolute;
   margin-top: 100px;
 }
 
-.wrapper_line{
+.wrapper_line {
   width: 1500px;
   height: 10px;
   margin-top: 320px;
-  background-color: #FCA311;
+  background-color: #fca311;
   position: absolute;
   margin-left: 10px;
 }
 
-.sub_text{
+.sub_text {
   width: 1160px;
   position: absolute;
   margin-top: 360px;
   /* margin-left: 10px; */
   background-color: #fff;
   padding: 30px 180px 30px 30px;
-  color:#14213D;
+  color: #14213d;
   right: 0;
 }

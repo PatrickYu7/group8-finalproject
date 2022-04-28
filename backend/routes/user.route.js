@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 const User = require("../models/user.model");
 const auth = require("./../middleware/user.auth");
-
 router.post(
     "/signup",
     [
@@ -141,5 +140,5 @@ router.post(
       res.send({ message: "Error in Fetching user" });
     }
   });
-  
-  module.exports = router;
+
+module.exports = router;

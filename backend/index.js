@@ -1,11 +1,13 @@
 import express from "express";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 import cors from "cors";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 
 import CourseRouter from "./routes/course.route.js";
 import ReviewRouter from "./routes/review.route.js";
-import UserRouter from "./routes/user.route.js";
+const user = require("./routes/user.route.cjs");
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -23,7 +25,12 @@ mongoose
 
 app.use(CourseRouter.route, CourseRouter.router());
 app.use(ReviewRouter.route, ReviewRouter.router());
-app.use(UserRouter.route, UserRouter.router());
+app.use(bodyParser.json());
+app.use("/user.route", user); //?
+
+app.get("/", (req, res) => {
+  res.json({ message: "API Working"});
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

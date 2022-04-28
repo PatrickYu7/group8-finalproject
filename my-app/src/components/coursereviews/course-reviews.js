@@ -56,6 +56,7 @@ function CourseReviews() {
     const getLikes = currentReviews[j].likes;
     const getDislikes = currentReviews[j].dislikes;
     const id = currentReviews[j]._id;
+    const username = currentReviews[j].username;
     console.log(currentReviews[j]);
     reviewCards.push(
       <ReviewCard
@@ -63,6 +64,7 @@ function CourseReviews() {
         likes={getLikes}
         dislikes={getDislikes}
         reviewID={id}
+        username={username}
       />
     );
   }

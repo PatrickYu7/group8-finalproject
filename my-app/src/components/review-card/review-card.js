@@ -10,6 +10,7 @@ function ReviewCard(props) {
       <div className={classes.cardStyling}>
         <div className={classes.comments}>
           <p>{props.comments}</p>
+          <p>{props.username}</p>
         </div>
 
         <LikeButton

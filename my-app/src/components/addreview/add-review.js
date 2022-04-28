@@ -36,6 +36,7 @@ function AddReview() {
     const reviewData = {
       comment: enteredReview,
       courseId: id,
+      username: localStorage.getItem("username"),
     };
 
     axios.post("http://localhost:8080/course/rate", ratings).then((res) => {

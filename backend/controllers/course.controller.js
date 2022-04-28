@@ -29,10 +29,28 @@ export const rate = async (req, res) => {
   }
 };
 
-export const getCourses = async (_req, res) => {
+export const getCourses = async (req, res) => {
   try {
     const courses = await Courses.find();
     res.status(200).json({ courses });
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+};
+
+export const getUserReviews = async (req, res) => {
+  const { username } = req.body;
+  try {
+    let reviews = await Reviews.find({
+      username: username,
+    });
+    if (!reviews) {
+      res.json({
+        message: "No Reviews",
+      });
+    } else {
+      res.status(200).json({ reviews });
+    }
   } catch (err) {
     res.status(500).json({ error: err });
   }

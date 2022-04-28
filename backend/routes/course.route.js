@@ -5,6 +5,7 @@ import {
   getReviews,
   addCourse,
   getCourses,
+  getUserReviews,
 } from "../controllers/course.controller.js";
 
 export default {
@@ -21,6 +22,8 @@ export default {
     router.post("/getReviews", getReviews);
 
     router.post("/addCourse", addCourse);
+
+    router.post("/getUserReviews", getUserReviews);
 
     return router;
   },

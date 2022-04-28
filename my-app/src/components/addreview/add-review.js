@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 //https://reactjsexample.com/a-simple-star-rating-component-with-react/
 import { Rating } from "react-simple-star-rating";
 
-function AddReview(props) {
+function AddReview() {
   const [diffRating, setDiffRating] = useState(0);
   const [sigRating, setSigRating] = useState(0);
   const [workRating, setWorkRating] = useState(0);

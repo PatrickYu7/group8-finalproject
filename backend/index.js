@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 
 import CourseRouter from "./routes/course.route.js";
 import ReviewRouter from "./routes/review.route.js";
+import UserRouter from "./routes/user.route.js";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -22,6 +23,7 @@ mongoose
 
 app.use(CourseRouter.route, CourseRouter.router());
 app.use(ReviewRouter.route, ReviewRouter.router());
+app.use(UserRouter.route, UserRouter.router());
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

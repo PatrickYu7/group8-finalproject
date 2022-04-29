@@ -9,9 +9,9 @@ const computeRating = (oldRating, newRating, numRating) => {
 
 export const rate = async (req, res) => {
   try {
-    const { difficulty, workload, significance, courseId } = req.body;
+    const { difficulty, workload, significance, courseID } = req.body;
 
-    const course = await Courses.findOne({ courseId });
+    const course = await Courses.findOne({ courseID });
     const numRating = course.numRating;
     course.difficulty = computeRating(course.difficulty, difficulty, numRating);
     course.workload = computeRating(course.workload, workload, numRating);
@@ -58,13 +58,13 @@ export const getUserReviews = async (req, res) => {
 
 export const addReview = async (req, res) => {
   try {
-    const { comment, courseId, username } = req.body;
+    const { comment, courseID, username } = req.body;
     const data = {
       comment,
       username,
     };
     const review = await Reviews.create(data);
-    const course = await Courses.findOne({ courseId });
+    const course = await Courses.findOne({ courseID });
     course.reviews.push(review._id);
     console.log(course.reviews);
     await course.save();
@@ -96,8 +96,8 @@ export const getReviews = async (req, res) => {
 
 export const addCourse = async (req, res) => {
   try {
-    const { courseID, courseName } = req.body;
-    const course = await Courses.create({ courseID, courseName });
+    const { courseID, courseName, description } = req.body;
+    const course = await Courses.create({ courseID, courseName, description });
 
     res.status(200).json({ course });
   } catch (err) {

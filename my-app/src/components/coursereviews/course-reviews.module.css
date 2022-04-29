@@ -7,7 +7,7 @@
   left: 15%;
   border-radius: 1px;
   border: 1px solid black;
-  top: 43%;
+  top: 50%;
 }
 
 .wrapper {
@@ -15,7 +15,7 @@
   height: 200px;
   background-color: #14213d;
   position: absolute;
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 .reviewBtn {
@@ -31,7 +31,7 @@
 
 .text {
   font-family: Helvetica;
-  font-size: 75px;
+  font-size: 55px;
   font-weight: 500;
   letter-spacing: 0em;
   color: white;
@@ -45,7 +45,7 @@
   flex-direction: column;
   position: absolute;
   right: 7%;
-  top: 10%;
+  top: 35%;
 }
 
 .child {
@@ -57,14 +57,14 @@
 
 .textChild {
   display: inline-block;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 500;
 }
 
 .description {
   position: absolute;
-  top: 50%;
-  left: 75%;
+  top: 70%;
+  left: 65%;
   font-size: 25px;
   font-weight: 400;
 }

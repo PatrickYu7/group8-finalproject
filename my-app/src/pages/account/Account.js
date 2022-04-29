@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "../../components/review-card/review-card";
-import { ClassNames } from "@emotion/react";
 import classes from "./account.module.css";
 
 function Account() {

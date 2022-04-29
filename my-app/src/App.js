@@ -9,7 +9,6 @@ import SignUp from "./components/login-signup/signup";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import WithNav from "./components/WithNav";
 import WithoutNav from "./components/WIthoutNav";
-import { useState } from "react";
 import ProtectedRoutes from "./ProtectedRoutes";
 import AddCourse from "./components/addcourse/addcourse";
 

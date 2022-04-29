@@ -14,6 +14,11 @@ const courseSchema = new mongoose.Schema({
     type: [mongoose.Schema.Types.ObjectId],
     default: [],
   },
+  description: {
+    type: String,
+    default: "",
+  },
+
   difficulty: {
     type: Number,
     default: 0,
